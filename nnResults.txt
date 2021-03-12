@@ -1,0 +1,109 @@
+Train set: (478, 9) (478,)
+Test set: (205, 9) (205,)
+Train: fit_time = 0.05741089999999982
+Test: fit_time = 0.0016333000000001707
+jaccard index:  0.2575
+              precision    recall  f1-score   support
+
+           0       0.26      1.00      0.41       103
+           1       0.00      0.00      0.00       297
+
+    accuracy                           0.26       400
+   macro avg       0.13      0.50      0.20       400
+weighted avg       0.07      0.26      0.11       400
+
+Train: fit_time = 0.06343370000000004
+Test: fit_time = 0.0015435999999999783
+jaccard index:  0.75
+              precision    recall  f1-score   support
+
+           0       1.00      0.03      0.06       103
+           1       0.75      1.00      0.86       297
+
+    accuracy                           0.75       400
+   macro avg       0.87      0.51      0.46       400
+weighted avg       0.81      0.75      0.65       400
+
+fit_time = 0.2380116000000001
+fit_time = 0.00040940000000011523
+accuracy score = 0.7425
+f1 score:  0.6327761836441893
+jaccard index:  0.7425
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       103
+           1       0.74      1.00      0.85       297
+
+    accuracy                           0.74       400
+   macro avg       0.37      0.50      0.43       400
+weighted avg       0.55      0.74      0.63       400
+
+fit_time = 0.32457099999999994
+fit_time = 0.00035959999999990444
+accuracy score = 0.7425
+f1 score:  0.6327761836441893
+jaccard index:  0.7425
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       103
+           1       0.74      1.00      0.85       297
+
+    accuracy                           0.74       400
+   macro avg       0.37      0.50      0.43       400
+weighted avg       0.55      0.74      0.63       400
+
+fit_time = 2.7287663999999996
+fit_time = 0.0003571999999998354
+test accuracy score = 0.2575
+f1 score:  0.1054572564612326
+jaccard index:  0.2575
+              precision    recall  f1-score   support
+
+           0       0.26      1.00      0.41       103
+           1       0.00      0.00      0.00       297
+
+    accuracy                           0.26       400
+   macro avg       0.13      0.50      0.20       400
+weighted avg       0.07      0.26      0.11       400
+
+fit_time = 2.8874246999999995
+fit_time = 0.0004070000000000462
+test accuracy score = 0.755
+f1 score:  0.6611908584885464
+jaccard index:  0.755
+              precision    recall  f1-score   support
+
+           0       1.00      0.05      0.09       103
+           1       0.75      1.00      0.86       297
+
+    accuracy                           0.76       400
+   macro avg       0.88      0.52      0.48       400
+weighted avg       0.82      0.76      0.66       400
+
+fit_time = 35.0797418
+fit_time = 0.00043930000000358405
+accuracy score = 0.2575
+f1 score:  0.1054572564612326
+jaccard index:  0.2575
+              precision    recall  f1-score   support
+
+           0       0.26      1.00      0.41       103
+           1       0.00      0.00      0.00       297
+
+    accuracy                           0.26       400
+   macro avg       0.13      0.50      0.20       400
+weighted avg       0.07      0.26      0.11       400
+
+fit_time = 100.63481279999999
+fit_time = 0.0006163999999841963
+accuracy score = 0.77
+f1 score:  0.7021274509803922
+jaccard index:  0.77
+              precision    recall  f1-score   support
+
+           0       0.82      0.14      0.23       103
+           1       0.77      0.99      0.86       297
+
+    accuracy                           0.77       400
+   macro avg       0.80      0.56      0.55       400
+weighted avg       0.78      0.77      0.70       400
