@@ -20,47 +20,6 @@ from sklearn.model_selection import cross_val_score
 
 
 
-cancer = pd.read_csv("cancer.csv", delimiter=",")
-cancer[0:5]
-
-
-
-cancer.dtypes
-
-cancer = cancer[pd.to_numeric(cancer['BareNuc'], errors='coerce').notnull()]
-cancer['BareNuc'] = cancer['BareNuc'].astype('int')
-cancer.dtypes
-
-
-cancer.shape
-
-
-
-feature_df = cancer[['Clump', 'UnifSize', 'UnifShape', 'MargAdh', 'SingEpiSize', 'BareNuc', 'BlandChrom', 'NormNucl', 'Mit']]
-X = np.asarray(feature_df)
-X[0:5]
-
-
-cancer['Class'] = cancer['Class'].astype('int')
-y = np.asarray(cancer['Class'])
-y [0:5]
-
-
-np.random.seed(10)
-X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.30, random_state=4)
-print ('Train set:', X_train.shape,  y_train.shape)
-print ('Test set:', X_test.shape,  y_test.shape)
-
-
-# Normalize feature data
-scaler = MinMaxScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test) # One hot encode target values
-one_hot = OneHotEncoder()
-y_train_hot = one_hot.fit_transform(y_train.reshape(-1, 1)).todense()
-y_test_hot = one_hot.transform(y_test.reshape(-1, 1)).todense()
-
-
 X_train_scaled[1]
 algo = "NN"
 algoName = "./census/census_"+ algo +"_"
@@ -79,14 +38,6 @@ features = bank_df_dummies.drop(['sallary'], axis=1)
 # X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.20, stratify=labels)
 
 X_train_scaled, X_test_scaled, y_train_hot, y_test_hot = train_test_split(features, labels, test_size=0.20, stratify=labels)
-# 10-fold cross-validation with Neural networks - 2 Layers, with Relu activation
-#clf = MLPClassifier(hidden_layer_sizes=(9,9),activation = 'relu', max_iter=1500, solver='lbfgs')
-#scores = cross_val_score(clf, X, y, cv=10, scoring='accuracy')
-#print(scores)
-#print(np.std(scores))
-# use average accuracy as an estimate of out-of-sample accuracy
-#print(scores.mean())
-#Train Model using MLPClassifier function
 
 clf = MLPClassifier(hidden_layer_sizes=(9,9), activation = 'relu', max_iter=1000, solver = 'lbfgs' )
 time_start = perf_counter()
@@ -94,10 +45,9 @@ clf.fit(X_train_scaled, y_train_hot)
 fit_time = perf_counter() - time_start
 print(f'Train: fit_time = {fit_time}')
 
-#train_accuracy = accuracy_score(y_train, )
-#print (f'train accuracy score = {train_accuracy2}')
-#train_accuracy1 = accuracy_score(y_train, yhat_train)
-#print (f'train accuracy score = {train_accuracy2}')
+train_accuracy = accuracy_score(y_train, )
+print (f'train accuracy score = {train_accuracy}')
+
 
 time_start = perf_counter()
 yhat = clf.predict(X_test_scaled)
@@ -111,28 +61,6 @@ print (classification_report(y_test_hot, yhat))
 
 
 
-#Train Model using MLPClassifier function - Sigmoid Funtion
-clf_sig = MLPClassifier(hidden_layer_sizes=(9,9), activation = 'logistic', max_iter=1000, solver = 'lbfgs' )
-time_start = perf_counter()
-clf_sig.fit(X_train_scaled, y_train_hot)
-fit_time = perf_counter() - time_start
-print(f'Train: fit_time = {fit_time}')
-
-#train_accuracy = accuracy_score(y_train, )
-#print (f'train accuracy score = {train_accuracy2}')
-#train_accuracy1 = accuracy_score(y_train, yhat_train)
-#print (f'train accuracy score = {train_accuracy2}')
-
-
-time_start = perf_counter()
-yhat_sig = clf_sig.predict(X_test_scaled)
-fit_time = perf_counter() - time_start
-print (f'Test: fit_time = {fit_time}')
-
-#Evaulation
-jaccard_sig = jaccard_similarity_score(y_test_hot, yhat_sig)
-print("jaccard index: ",jaccard_sig)
-print (classification_report(y_test_hot, yhat_sig))
 
 
 np.random.seed(7)
@@ -146,13 +74,6 @@ clf_hill.fit(X_train_scaled, y_train_hot)
 fit_time = perf_counter() - time_start
 print(f'fit_time = {fit_time}')
 
-
-#Predict Labels for train set and assess accuracy
-#time_start = perf_counter()
-#yhat_hill = clf_hill.predict(X_train_scaled)
-#fit_time = perf_counter() - time_start
-#print (f'fit_time = {fit_time}')
-#train_accuracy = accuracy_score(y_train, yhat_hill)
 
 #Predict Labels for test set and assess accuracy
 time_start = perf_counter()
